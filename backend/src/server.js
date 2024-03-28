@@ -2,6 +2,7 @@ const express = require("express");
 const authRouter = require("./routers/authRouter");
 const cors = require("cors");
 const session = require("express-session");
+const todoRaouter = require("./routers/todoRouter");
 const mongoDbSession = require("connect-mongodb-session")(session);
 
 require("./db/connect");
@@ -25,6 +26,7 @@ app.use(
   })
 );
 app.use(authRouter);
+app.use(todoRaouter)
 
 app.listen(PORT, () => {
   console.log(`server is running on PORT ${PORT}`);
